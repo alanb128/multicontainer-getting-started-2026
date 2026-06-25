@@ -8,7 +8,11 @@ To get this project up and running, you'll need to [sign up](https://dashboard.b
 Once you are set up, you can click the deploy button below, or clone this repo locally if you want to modify and/or experiment with it:
 
 
+## What this example does
 
 
+## Key concepts
 
-It should take a few minutes for your project to build. While you wait, you can enable device URLs, so you can see the server outside of our local network. This option can be found in the *Actions* drop down in your device dashboard.
+## About healthchecks on balena
+
+
