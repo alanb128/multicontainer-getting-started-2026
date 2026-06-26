@@ -1,4 +1,4 @@
-version: '2'
+version: '2.1'
 services:
   web:
     build: .
@@ -8,12 +8,14 @@ services:
       - REDIS_HOST=redis
       - REDIS_PORT=6379
     depends_on:
-      redis
+      - redis
 
   redis:
     image: redis:alpine
     volumes:
       - redis-data:/data
+    expose:
+      - "6379"
 
 volumes:
   redis-data:
