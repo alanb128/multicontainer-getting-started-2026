@@ -12,8 +12,8 @@ Once you are set up, you can click the deploy button below, or clone this repo l
 ## What this example does
 The docker-compose file defines the two services that will be run:
 
-- The `web` service is a Flask web server build by the Dockerfile. It maps port 8000 on the host to port 5000 in the container.
-- The `redis` service uses an official Redis image from the Docker Hub.
+- The `web` service is a minimal Flask web server built by the Dockerfile. It maps port 8000 on the host to port 5000 in the container.
+- The `redis` service uses an official Redis image from the Docker Hub. Redis is an in-memory database used simplistically here to store the hit count.
 
 Find the local IP address of your device from the balenaCloud dashboard and replace <device-ip> with it in the address below:
 
