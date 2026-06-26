@@ -1,19 +1,22 @@
-FROM python:3.12-alpine  # Builds an image with the Python 3.12 image
+FROM python:3.12-alpine
 
-WORKDIR /code  # Sets the working directory to `/code`
+WORKDIR /code
 
-ENV FLASK_APP=app.py  # Sets environment variables used by the `flask` command
-
+# Set environment variables used by the `flask` command:
+ENV FLASK_APP=app.py  
 ENV FLASK_RUN_HOST=0.0.0.0
 
-RUN apk add --no-cache gcc musl-dev linux-headers  # Installs `gcc` and other dependencies
+# Install `gcc` and other dependencies:
+RUN apk add --no-cache gcc musl-dev linux-headers redis
 
-COPY requirements.txt .  # Copies `requirements.txt`
+# Copies the current directory `.` in the project to the workdir `.` in the image:
+COPY . .  
 
-RUN pip install -r requirements.txt  # Installs the Python dependencies
+# Installs the Python dependencies:
+RUN pip install -r requirements.txt  
 
-COPY . .  # Copies the current directory `.` in the project to the workdir `.` in the image
+RUN chmod +x healthcheck.sh
 
 EXPOSE 5000
 
-CMD ["flask", "run", "--debug"]  # Sets the default command for the container to `flask run --debug`
+CMD ["./healthcheck.sh"]
